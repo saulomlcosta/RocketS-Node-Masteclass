@@ -12,7 +12,7 @@ function writeFile(cb) {
     err => {
       if(err) throw err
 
-      cb(JSON.stringify({message: "ok"}))
+      cb(JSON.stringify({message: "ok"}));
     }
   );
 };
@@ -23,19 +23,19 @@ http.createServer((req, res) => {
 
   res.writeHead(200, {
     'Access-Control-Allow-Origin': '*'
-  })
+  });
 
   //all resources
   if(!name || !url)
-    return res.end(JSON.stringify(data))
+    return res.end(JSON.stringify(data));
   
   if(del) {
-    data.urls = data.urls.filter(item => String(item.url) !== String(url))
-    return writeFile((message) => res.end(message))    
+    data.urls = data.urls.filter(item => String(item.url) !== String(url));
+    return writeFile((message) => res.end(message));    
   }
 
-    data.urls.push({name, url})
+    data.urls.push({name, url});
 
-    return writeFile((message) => res.end(message)) 
+    return writeFile((message) => res.end(message)); 
 
 }).listen(3000, () => console.log('Api is running!'));
