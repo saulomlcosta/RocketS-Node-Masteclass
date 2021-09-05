@@ -4,7 +4,6 @@ const fs = require('fs');
 const path = require('path');
 
 const data = require('./urls.json');
-const { ESRCH } = require('constants');
 
 function writeFile(cb) {
   fs.writeFile(
